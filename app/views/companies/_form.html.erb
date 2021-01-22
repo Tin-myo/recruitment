@@ -1,0 +1,139 @@
+<%= form_with(model: company) do |form| %>
+<br/>
+<% if company.errors.any? %>
+    <div id="error_explanation" class="alert alert-warning alert-dismissible fade show" role="alert">
+      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+        <% company.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+  <% end %>
+
+
+
+
+
+<div class = "container">
+<div class="card">
+  <h5 class="card-header p-3 mb-2 bg-info text-white">New Company</h5>
+  <div class="card-body p-3 mb-2 bg-light text-dark">
+    <form>
+
+     <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :image %><span class="text-danger">*</span>
+      <%= form.file_field :image,class:"form-control" %>
+    </div>
+  </div> 
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :company_name %><span class="text-danger">*</span>
+      <%= form.text_field :company_name,class:"form-control",placeholder:"Pleace enter the company name", maxlength:"45" %>
+
+    </div>
+    <div class="form-group col-md-6">
+      <%= form.label :country %><span class="text-danger">*</span>
+      
+     <%= form.select :country, Company::COUNTRY_LIST,  { prompt: t("companies.counties.Select"), selected: @company.country }, { class: "form-control", :required => true } %>
+    
+    </div>
+  </div>
+ 
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :email %><span class="text-danger">*</span>
+      <%= form.email_field :email,class:"form-control",placeholder:"email@gmail.com"%>
+    </div>
+    <div class="form-group col-md-6">
+      <%= form.label :website %>
+      <%= form.text_field :website,class:"form-control",placeholder:"https://www.website.com" %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :facebook %>
+      <%= form.text_field :facebook,class:"form-control",placeholder:"https://www.facebook.com" %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= form.label :phone_no %><span class="text-danger">*</span>
+      <%= form.text_field :phone_no,class:"form-control",placeholder:"09-", maxlength:"15" %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <%= form.label :address %><span class="text-danger">*</span>
+      <%= form.text_area :address,class:"form-control",placeholder:"Address", :required => true  %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :Number_of_employee %>
+      <%= form.number_field :Number_of_employee,class:"form-control" %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= form.label :industry %>  <span class="text-danger">*</span>  
+
+      <%= form.select :industry, Company::INDUSTRY_LIST,  { prompt: t("companies.counties.Select"), selected: @company.industry }, { class: "form-control", :required => true } %>
+     
+
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :state %>
+     
+<%= form.select :state, Company::STATE_LIST,  { prompt: t("companies.counties.Select"), selected: @company.state }, { class: "form-control"} %>
+
+    </div>
+    <div class="form-group col-md-6">
+      <%= form.label :township %>
+      <%= form.select :township, Company::TOWNSHIP_LIST,  { prompt: t("companies.counties.Select"), selected: @company.township }, { class: "form-control"} %>      
+    </div>
+    </div>
+
+    
+  <div class="form-row">
+    
+     <div class="form-group col-md-6">
+      <%= form.label :founded %>
+      <%= form.select :founded, Company::FOUNDED_LIST,  { prompt: t("companies.counties.Select"), selected: @company.founded }, { class: "form-control", :required => true } %>      
+     
+    </div>
+    </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <%= form.label :description %>
+      <%= form.text_area :description,class:"form-control" %>   
+
+    </div>
+  </div>
+
+  <div class="field form-group">    
+    <%= form.number_field :user_id, 
+    id: :company_user_id, class:"form-control",
+    value: current_user.id, type: :hidden %>
+  </div>  
+  <br/>
+
+  <div class="actions">
+      <%= form.submit class:"btn btn-info"%>       
+
+  </div>
+</form>
+  </div>
+</div>
+</div>
+  
+<% end %>

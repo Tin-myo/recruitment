@@ -1,0 +1,139 @@
+
+
+
+ 
+<div class="container">
+<div class="card">
+  <div class="card-header p-3 mb-2 bg-info text-white">
+    <p style="font-size: 25px"> <strong>Detail Company Information</strong></p>
+  </div>
+  <div class="card-body p-3 mb-2 bg-light text-dark">
+    <form>
+
+
+
+
+      <div class="form-row">
+       <div class="form-group col-md-6">
+        <p style="font-size: 20px">
+        <strong>Company name:</strong>
+        <%= @company.company_name %>
+       </p>
+       </div>
+       <div class="form-group col-md-6">
+        <p style="font-size: 20px">
+        <strong>Country:</strong>
+        <%= @company.country%>
+      </p>
+       </div>
+      </div>
+
+
+       <div class="form-row">
+       <div class="form-group col-md-6">
+        <p style="font-size: 20px">
+        <strong>Email:</strong>
+        <%= @company.email %>
+       </p>
+       </div>
+       <div class="form-group col-md-6">
+        <p style="font-size: 20px">
+        <strong>Website:</strong>
+        <%= @company.website %>
+       </p>
+       </div>
+      </div>
+
+
+       <div class="form-row">
+       <div class="form-group col-md-6">
+        <p style="font-size: 20px">
+        <strong>Facebook:</strong>
+        <%= @company.facebook %>
+       </p>
+       </div>
+       <div class="form-group col-md-6">
+        <p style="font-size: 20px">
+        <strong>Founded:</strong>
+        <%= @company.founded %>
+       </p>
+       </div>
+      </div>
+
+
+      <div class="form-row">
+       <div class="form-group col-md-6">
+        <p style="font-size: 20px">
+        <strong>Number of employee:</strong>
+        <%= @company.Number_of_employee %>
+        </p>
+       </div>
+       <div class="form-group col-md-6">
+        <p style="font-size: 20px">
+        <strong>Industry:</strong>
+        <%= @company.industry %>
+        </p>
+       </div>
+      </div>
+
+
+      <div class="form-row">
+       <div class="form-group col-md-6">
+        <p style="font-size: 20px">
+        <strong>Address:</strong>
+        <%= @company.address %>
+        </p>
+       </div>
+       <div class="form-group col-md-6">
+        <p style="font-size: 20px">
+        <strong>Phone no:</strong>
+        <%= @company.phone_no %>
+      </p>
+       </div>
+      </div>
+
+
+      <div class="form-row">
+       <div class="form-group col-md-6">
+        <p style="font-size: 20px">
+        <strong>State:</strong>
+        <%= @company.state %>
+        </p>
+       </div>
+       <div class="form-group col-md-6">
+        <p style="font-size: 20px">
+        <strong>Township:</strong>
+        <%= @company.township %>
+        </p>
+       </div>
+      </div>
+
+
+      <div class="form-row">
+       <div class="form-group col-md-6">
+        <p style="font-size: 20px">
+       <strong>Description:</strong>
+       <%= @company.description %>
+       </p>
+       </div>
+      </div>
+
+      <div class="form-row">
+       <div class="form-group col-md-6">
+        <p>
+       <strong>Image:</strong>
+       <%= link_to image_tag(@company.image,style: "width:100%"), companies_path %>
+       </p>
+       </div>
+      </div>
+
+
+      <center>
+    <%= link_to 'Edit', edit_company_path(@company), class:"btn btn-info" %> |
+<%= link_to 'Back', companies_path, class:"btn btn-dark" %>
+  </center>
+
+</form>
+  </div>
+</div>
+</div>

@@ -1,0 +1,50 @@
+
+<div class="row justify-content-center">
+<div class="col-md-6">
+<div class="card">
+  <div class="card-header p-3 mb-2 bg-info text-white">
+<p style="font-size: 25px" class="text-center"> <strong>
+    Sign up</strong></p>
+  </div>
+  <div class="card-body form-group">
+    
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+  </div>
+
+  <div class="field ">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+  </div>
+<br/>
+  <div class="actions text-center">
+    <%= f.submit "Sign up", class:"btn btn-info" %>
+  </div>
+
+<% end %>
+
+  </div>
+  <div class="card-footer p-3 mb-2 bg-light text-dark text-center">
+   Have an Account?<%= render "devise/shared/links"%>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
